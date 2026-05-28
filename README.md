@@ -1,32 +1,26 @@
-# Movie Theater Ticket Sales System
+# Movie Theater Ticket Sales
 
-A Java-based movie theater management application for selling tickets, managing theater showings, calculating ticket prices, and generating sales reports.
+A Java console application for managing movie theater ticket sales, movie showings, theater information, and ticket pricing.
 
-This project demonstrates object-oriented programming, file processing, arrays, user input handling, and basic reporting logic in Java.
+This project demonstrates object-oriented programming, arrays, console input, ticket price calculation, file/report planning, and JUnit-based testing in Java.
 
 ## Overview
 
-Movie Theater Ticket Sales System is a Java application designed to help a cinema complex manage ticket sales across multiple theaters. The system supports different movies, showtimes, ticket categories, theater types, and pricing rules.
+Movie Theater Ticket Sales is a Java application designed for a cinema complex that manages multiple theaters, movies, showtimes, and ticket categories. The system supports different pricing rules based on patron type, matinee status, and luxury theater options.
 
-The application allows users to select a theater, choose a movie and showtime, calculate ticket prices, and record sales information for later analysis.
+The goal of this project was to translate a set of real-world requirements into an object-oriented Java program with separate classes for movies, theaters, client interaction, and testing.
 
 ## Features
 
-* Manage multiple theaters in a cinema complex
-* Support movies showing in more than one theater
-* Store movie details including title, length, genre, and rating
-* Store showtimes for each movie
-* Support different ticket categories:
-
-  * Child
-  * Adult
-  * Senior
-  * Matinee
-* Apply higher fixed pricing for luxury theaters
-* Calculate ticket prices based on age category, showtime, and theater type
-* Track tickets sold by category, movie, and theater
-* Output sales reports to files
-* User-friendly console-based interface
+* Console-based movie theater ticket sales system
+* Stores movie information such as title, length, genre, rating, and showtimes
+* Supports multiple theaters in a cinema complex
+* Allows the same movie to appear in more than one theater
+* Supports ticket pricing for different patron categories
+* Includes matinee pricing logic
+* Supports luxury theater pricing
+* Tracks ticket sales information for analysis
+* Includes JUnit test files for validating program behavior
 
 ## Tech Stack
 
@@ -34,71 +28,96 @@ The application allows users to select a theater, choose a movie and showtime, c
 * Object-Oriented Programming
 * Arrays
 * Scanner Input
-* File Processing
-* PrintWriter
-* Command-Line Interface
+* JUnit
+* Console Application Design
+* File/Report Output Planning
 
 ## Repository Structure
 
 ```text
-Movie-Theater-Ticket-Sales-System/
+Movie-Theater-Ticket-Sales/
 ├── README.md
-├── src/
-│   └── Java source files
-└── docs/
-    └── project documentation
+├── CinemagicClient.java
+├── CinemagicClientTest.java
+├── Movie.java
+├── TheaterTest.java
+├── client-idea.md
+└── junit-platform-console-standalone-1.6.2.jar
 ```
+
+> Note: Compiled `.class` files should generally be removed from the public repository because they can be regenerated from the `.java` source files.
 
 ## Main Classes
 
-### Movie
+### `Movie.java`
 
-Stores information about each movie, including:
+Represents a movie shown in the cinema complex.
 
-* Title
-* Length
+Stores information such as:
+
+* Movie title
+* Movie length
 * Genre
 * Rating
 * Showtimes
 
-### Theater
+### `Theater.java`
 
-Stores information about each theater, including:
+Represents an individual theater in the cinema complex.
+
+Stores information such as:
 
 * Theater number
 * Theater name
-* Whether the theater is luxury
-* Movies playing in that theater
+* Whether the theater is a luxury theater
+* Movies assigned to that theater
 
-### CinemagicClient
+### `CinemagicClient.java`
 
-Provides the console-based user interface. It guides users through theater selection, movie selection, ticket category selection, and ticket price calculation.
+Provides the main console-based user interface.
+
+Handles:
+
+* Theater selection
+* Movie selection
+* Showtime selection
+* Ticket category input
+* Ticket price calculation
+* User interaction flow
+
+### Test Files
+
+The project includes test files such as:
+
+* `CinemagicClientTest.java`
+* `TheaterTest.java`
+
+These tests help validate expected behavior for core program logic.
 
 ## How It Works
 
-1. The user opens the program through the command-line interface.
-2. The program displays available theaters and movies.
+1. The user runs the console application.
+2. The program displays available theater and movie options.
 3. The user selects a theater, movie, and showtime.
-4. The user selects ticket categories such as child, adult, senior, or matinee.
-5. The system calculates the ticket price based on the selected options.
-6. Ticket sale data is recorded.
-7. Sales reports can be written to files for later analysis.
+4. The user enters ticket information based on patron type.
+5. The system calculates the ticket price using the selected options.
+6. Ticket sales information can be used for reporting and analysis.
 
-At a high level, the project follows this flow:
+At a high level, the system follows this flow:
 
 ```text
-User Selection → Theater + Movie Lookup → Ticket Price Calculation → Sale Recording → Report Output
+User Input → Theater Selection → Movie Selection → Ticket Pricing → Sale Tracking → Report Planning
 ```
 
 ## Key Concepts Demonstrated
 
 * Object-oriented class design
-* Encapsulation through custom classes
+* Encapsulation through custom Java classes
 * Arrays of objects
 * Console input using `Scanner`
-* File output using `PrintWriter`
-* Conditional pricing logic
-* Report generation
+* Conditional logic for ticket pricing
+* Test-driven validation with JUnit
+* Requirement analysis and implementation planning
 * Team-based software development
 
 ## Running the Project
@@ -106,65 +125,60 @@ User Selection → Theater + Movie Lookup → Ticket Price Calculation → Sale 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Movie-Theater-Ticket-Sales-System.git
-cd Movie-Theater-Ticket-Sales-System
+git clone https://github.com/YOUR_USERNAME/Movie-Theater-Ticket-Sales.git
+cd Movie-Theater-Ticket-Sales
 ```
 
-### 2. Compile the project
-
-If the source files are inside `src/`, use:
+### 2. Compile the Java files
 
 ```bash
-javac src/*.java
+javac *.java
 ```
 
 ### 3. Run the client program
 
 ```bash
-java -cp src CinemagicClient
+java CinemagicClient
 ```
 
-Adjust the command if the main class or package structure is different.
+## Running Tests
 
-## Testing
+If using the included JUnit standalone jar, tests can be run with a command similar to:
 
-Testing focused on verifying that the system correctly handles:
+```bash
+java -jar junit-platform-console-standalone-1.6.2.jar --class-path . --scan-class-path
+```
 
-* Theater selection
-* Movie selection
-* Multiple showtimes
-* Different ticket categories
-* Matinee pricing
-* Luxury theater pricing
-* Ticket sales tracking
-* File output for reports
-* Invalid or unexpected user input
+The exact command may vary depending on your Java version and final file organization.
 
 ## What I Learned
 
 Through this project, I strengthened my understanding of:
 
-* Designing Java programs with multiple interacting classes
-* Translating requirements into an object-oriented design
-* Using arrays to store related objects
-* Handling user input through a console interface
-* Writing output reports to files
-* Collaborating with teammates on a shared programming project
-* Documenting requirements, design, implementation, and testing
+* Designing Java programs from written requirements
+* Creating and using custom classes
+* Storing related objects in arrays
+* Building a console-based user interaction flow
+* Writing conditional pricing logic
+* Creating test files for Java classes
+* Collaborating with a team on a programming project
+* Documenting requirements, design, implementation, and testing decisions
 
 ## Future Improvements
 
+* Remove compiled `.class` files from the repository
+* Move the JUnit `.jar` file into a `lib/` folder
+* Add a dedicated `src/` folder for source files
+* Add a dedicated `test/` folder for test files
+* Add file output for detailed ticket sales reports
+* Add persistent storage for movie and theater data
+* Replace arrays with Java collections for more flexible storage
 * Add a graphical user interface
-* Replace arrays with more flexible collection types
-* Add persistent storage for movies, theaters, and sales
-* Add admin functionality for updating showtimes and prices
-* Improve input validation and error messages
-* Add automated unit tests
-* Add more detailed sales analytics and visual reports
+* Add more detailed sales analytics by movie, theater, and ticket category
 
 ## Portfolio Note
 
-This is a cleaned portfolio version of a Java programming project. Course-specific instructions, assignment text, and restricted materials have been removed. The repository is intended to demonstrate Java object-oriented programming, file processing, ticket pricing logic, and team-based software development.
+This is a cleaned portfolio version of a Java programming project. Course-specific instructions, assignment text, and restricted materials have been removed. The repository is intended to demonstrate Java object-oriented programming, console interaction, ticket pricing logic, and team-based software development.
 
 ## Contributors
 
