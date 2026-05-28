@@ -45,12 +45,8 @@ Movie-Theater-Ticket-Sales-System/
 ├── README.md
 ├── src/
 │   └── Java source files
-├── input/
-│   └── sample input files, if included
-├── output/
-│   └── generated sales reports, if included
 └── docs/
-    └── project documentation, if included
+    └── project documentation
 ```
 
 ## Main Classes
