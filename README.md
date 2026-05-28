@@ -42,10 +42,7 @@ Movie-Theater-Ticket-Sales/
 ├── Movie.java
 ├── TheaterTest.java
 ├── client-idea.md
-└── junit-platform-console-standalone-1.6.2.jar
 ```
-
-> Note: Compiled `.class` files should generally be removed from the public repository because they can be regenerated from the `.java` source files.
 
 ## Main Classes
 
@@ -140,16 +137,6 @@ javac *.java
 ```bash
 java CinemagicClient
 ```
-
-## Running Tests
-
-If using the included JUnit standalone jar, tests can be run with a command similar to:
-
-```bash
-java -jar junit-platform-console-standalone-1.6.2.jar --class-path . --scan-class-path
-```
-
-The exact command may vary depending on your Java version and final file organization.
 
 ## What I Learned
 
